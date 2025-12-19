@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kubernetes-ingress-app
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/Ranjit-08/kubernetes-ingress-deployment.git
+    targetRevision: main
+    path: k8s-files
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: ranjit
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
