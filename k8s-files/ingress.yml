@@ -1,9 +1,9 @@
 #kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.2.1/deploy/static/provider/cloud/deploy.yaml #-install ingress contr
 apiVersion: networking.k8s.io/v1
 kind: Ingress
-namespace: ingress-nginx
 metadata:
   name: k8s-ingress
+  namespace: ingress-nginx
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/rewrite-target: /   # strip prefix so backend serves "/"
