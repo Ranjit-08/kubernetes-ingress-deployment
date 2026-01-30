@@ -2,15 +2,14 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: k8s-ingress
-  namespace: ranjit
+  namespace: ingress-nginx
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx
   rules:
-  - host: arjsu.shop
-    http:
+  - http:
       paths:
       - path: /
         pathType: Prefix
